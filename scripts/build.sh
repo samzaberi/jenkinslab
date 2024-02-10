@@ -13,5 +13,5 @@ fi
 export GOTMPDIR="$JENKINS_HOME/$ENV"
 mkdir -p $GOTMPDIR
 echo "*** Building the app ..."
-echo $GOTMPDIR/$ENV
+echo $GOTMPDIR
 go build -o $GOTMPDIR/$ENV main.go
