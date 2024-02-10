@@ -15,5 +15,15 @@ pipeline {
                 sh 'bash scripts/test.sh' // Run the test.sh asset
             }
         }
-    }
+        stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'master';
+                    branch 'develop'
+                }
+            }
+            steps {
+                sh 'export JENKINS_NODE_COOKIE=do_not_kill ; bash scripts/deploy.sh'
+            }
+        }
 }
